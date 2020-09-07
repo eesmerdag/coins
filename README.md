@@ -14,6 +14,7 @@ go to directory and execute these commands in different tabs by this sort:
 2. go run pricing-service/main/service.go
 3. go run api/main/service.go
 ## Docker
+-- somehow, there is a bug when deploying them with docker. For now, it is recommended to deploy via terminal.
 go to directory and execute these commands to create images:
 
 ```docker build -f ./Dockerfile_ranking -t ranking:latest .```
@@ -31,3 +32,4 @@ you can run images as containers with these commands:
   ```docker run  -p  127.0.0.1:1902:1902 container_id_of_api```
   
 Note: Dockercompose should be used for orchestrating. This needs to be configured but now I don't have enough time.
+
