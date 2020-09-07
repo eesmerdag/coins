@@ -1,0 +1,13 @@
+FROM golang:1.14-alpine
+
+WORKDIR /coins
+
+COPY . /coins
+
+RUN GOOS=linux GOARCH=amd64 go build -o bin/service /coins/api/main/service.go
+
+FROM alpine:3.12.0
+
+COPY --from=0 /coins/bin/service /go/bin/service
+
+ENTRYPOINT ["/go/bin/service"]
